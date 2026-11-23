@@ -1,0 +1,236 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fb;
+    color: #263247;
+}
+
+.sidebar {
+    position: fixed;
+    width: 240px;
+    height: 100vh;
+    background: #172554;
+    padding: 30px 20px;
+    color: white;
+}
+
+.sidebar h2 {
+    font-size: 27px;
+    margin-bottom: 45px;
+    color: #93c5fd;
+}
+
+.menu-title {
+    font-size: 11px;
+    color: #9caac7;
+    margin-bottom: 18px;
+}
+
+.sidebar a {
+    display: block;
+    text-decoration: none;
+    color: #dbeafe;
+    padding: 14px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: #2563eb;
+    color: white;
+}
+
+.main-content {
+    margin-left: 240px;
+    padding: 35px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+header p,
+.card span,
+.section-heading p {
+    color: #8490a5;
+    font-size: 14px;
+}
+
+.profile {
+    background: #dbeafe;
+    color: #1d4ed8;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 35px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 13px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+}
+
+.card p {
+    color: #65718a;
+    font-size: 14px;
+}
+
+.card h2 {
+    font-size: 29px;
+    color: #2563eb;
+    margin: 15px 0;
+}
+
+.employee-section {
+    background: white;
+    padding: 28px;
+    border-radius: 13px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    margin-bottom: 8px;
+}
+
+.add-btn {
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 7px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 17px 12px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+th {
+    color: #758198;
+    font-size: 13px;
+}
+
+td {
+    font-size: 14px;
+}
+
+@media (max-width: 800px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .employee-section {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+/* Employee Registration Form */
+
+form {
+    max-width: 650px;
+}
+
+form label {
+    display: block;
+    margin: 20px 0 8px;
+    font-weight: 600;
+    color: #34415a;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #dce2ec;
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+
+form button {
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+.cancel-btn {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #64748b;
+}
+
+.edit-btn {
+    display: inline-block;
+    background: #eaf1ff;
+    color: #2563eb;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.edit-btn:hover {
+    background: #2563eb;
+    color: white;
+}
+

@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NexaHR | Employee Management System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <h2>NexaHR</h2>
+
+        <p class="menu-title">MAIN MENU</p>
+
+        <a href="/" class="active">Dashboard</a>
+        <a href="/">Employees</a>
+        <a href="/add">Add Employee</a>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <!-- HEADER -->
+        <header>
+
+            <div>
+                <h1>Dashboard</h1>
+                <p>Welcome to your Employee Management System.</p>
+            </div>
+
+            <div class="profile">Admin</div>
+
+        </header>
+
+
+        <!-- STATISTICS CARDS -->
+        <div class="stats">
+
+            <div class="card">
+                <p>Total Employees</p>
+                <h2>{{ total_employees }}</h2>
+                <span>People in the organization</span>
+            </div>
+
+            <div class="card">
+                <p>Departments</p>
+                <h2>{{ total_departments }}</h2>
+                <span>Active departments</span>
+            </div>
+
+            <div class="card">
+                <p>Average Salary</p>
+                <h2>₹{{ average_salary }}</h2>
+                <span>Across all employees</span>
+            </div>
+
+        </div>
+
+
+        <!-- EMPLOYEE SECTION -->
+        <div class="employee-section">
+
+            <!-- SECTION HEADER -->
+            <div class="section-heading">
+
+                <div>
+                    <h2>Recent Employees</h2>
+                    <p>Manage your workforce information.</p>
+                </div>
+
+                <a href="/add" class="add-btn">
+                    + Add Employee
+                </a>
+
+            </div>
+
+
+            <!-- SEARCH BAR -->
+            <form method="GET" action="/" class="search-form">
+
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Search by employee name or department..."
+                    value="{{ search }}"
+                >
+
+                <button type="submit" class="add-btn">
+                    Search
+                </button>
+
+                <a href="/" class="cancel-btn">Clear</a>
+
+            </form>
+
+
+            <!-- EMPLOYEE TABLE -->
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+
+                    {% for employee in employees %}
+
+                    <tr>
+
+                        <td>{{ employee.id }}</td>
+
+                        <td>{{ employee.name }}</td>
+
+                        <td>{{ employee.email }}</td>
+
+                        <td>{{ employee.department }}</td>
+
+                        <td>₹{{ employee.salary }}</td>
+
+
+                        <!-- ACTION BUTTONS -->
+                        <td>
+
+                            <a href="/edit/{{ employee.id }}"
+                               class="edit-btn">
+                                Edit
+                            </a>
+
+
+                            <form
+                                action="/delete/{{ employee.id }}"
+                                method="POST"
+                                class="delete-form"
+                                onsubmit="return confirm('Are you sure you want to delete this employee?');"
+                            >
+
+                                <button type="submit"
+                                        class="delete-btn">
+                                    Delete
+                                </button>
+
+                            </form>
+
+                        </td>
+
+                    </tr>
+
+                    {% else %}
+
+                    <tr>
+                        <td colspan="6">
+                            No employees found.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
